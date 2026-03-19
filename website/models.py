@@ -9,12 +9,21 @@ class Curso(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     orden = models.IntegerField(default=0)
     activo = models.BooleanField(default=True)
+    descripcion_larga = models.TextField(blank=True, help_text="Descripción detallada del curso")
+    imagen_hero = models.ImageField(upload_to='cursos/', blank=True, null=True, help_text="Imagen para la sección hero")
+    incluye = models.TextField(blank=True, help_text="Escribe cada item en una línea nueva")
 
     def __str__(self):
         return self.nombre
     
     def get_absolute_url(self):
         return reverse('detalle_curso', args=[self.slug])
+    
+    def lista_incluye(self):
+        """Convierte el texto en una lista, separando por líneas"""
+        if self.incluye:
+            return [item.strip() for item in self.incluye.split('\n') if item.strip()]
+        return []
     
     class Meta:
         ordering = ['orden', 'nombre']

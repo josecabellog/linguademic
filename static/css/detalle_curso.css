@@ -1,0 +1,164 @@
+/* static/css/detalle_curso.css */
+/* Estilos específicos para la página de detalle de cursos */
+
+/* Hero del curso */
+.curso-hero {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+    padding: 120px 0 60px;
+    color: var(--white);
+}
+
+.curso-hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.curso-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.curso-hero-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.curso-hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.curso-hero-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.curso-hero-info-item i {
+    margin-right: 0.5rem;
+}
+
+.curso-hero-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.curso-hero-icon {
+    font-size: 8rem;
+    opacity: 0.5;
+}
+
+/* Sección de descripción */
+.curso-descripcion {
+    padding: 4rem 0;
+}
+
+.curso-descripcion-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.curso-descripcion-titulo {
+    color: var(--primary-dark);
+    margin-bottom: 2rem;
+}
+
+.curso-descripcion-texto {
+    line-height: 1.8;
+    color: var(--gray-medium);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+/* Sección de inclusión */
+.curso-incluye {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--background-light);
+    border-radius: 15px;
+}
+
+.curso-incluye-titulo {
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+}
+
+.curso-incluye-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.curso-incluye-item {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.curso-incluye-item i {
+    color: var(--primary-light);
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* CTA Section */
+.curso-cta {
+    background: var(--primary-dark);
+    padding: 4rem 0;
+    color: var(--white);
+    text-align: center;
+}
+
+.curso-cta-titulo {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.curso-cta-subtitulo {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Volver link */
+.volver-link {
+    color: var(--white);
+    opacity: 0.8;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.volver-link:hover {
+    opacity: 1;
+    transform: translateX(-5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .curso-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .curso-hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .curso-incluye-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .curso-hero-icon {
+        font-size: 5rem;
+    }
+}

@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/detalle_curso.css' %}">
+{% endblock %}
+
+{% block title %}{{ curso.nombre }}{% endblock %}
+
+{% block content %}
+<!-- Hero del Curso -->
+<section class="curso-hero">
+    <div class="curso-hero-container">
+        <a href="{% url 'home' %}#cursos" class="volver-link">
+            ← Volver a cursos
+        </a>
+        
+        <div class="curso-hero-grid">
+            <div>
+                <h1 class="curso-hero-title">{{ curso.nombre }}</h1>
+                <p class="curso-hero-subtitle">{{ curso.descripcion_corta }}</p>
+                
+                <div class="curso-hero-info">
+                    <div class="curso-hero-info-item">
+                        <i class="fas fa-users"></i>
+                        <strong>Edades:</strong> {{ curso.edades }}
+                    </div>
+                    <div class="curso-hero-info-item">
+                        <i class="fas fa-tag"></i>
+                        <strong>Precio:</strong> ${{ curso.precio }}
+                    </div>
+                </div>
+                
+                <a href="#" class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 3rem;">
+                    Inscribirme ahora
+                </a>
+            </div>
+            
+            <div style="text-align: center;">
+                {% if curso.imagen_hero %}
+                    <img src="{{ curso.imagen_hero.url }}" alt="{{ curso.nombre }}" class="curso-hero-image">
+                {% else %}
+                    <div class="curso-hero-icon">
+                        {% if curso.nombre == "English Code" %}
+                            <i class="fas fa-child"></i>
+                        {% elif curso.nombre == "Wider World" %}
+                            <i class="fas fa-user-graduate"></i>
+                        {% elif curso.nombre == "Common Ground" %}
+                            <i class="fas fa-briefcase"></i>
+                        {% elif curso.nombre == "Master American Accent" %}
+                            <i class="fas fa-microphone-alt"></i>
+                        {% elif curso.nombre == "Conversation Club" %}
+                            <i class="fas fa-comments"></i>
+                        {% else %}
+                            <i class="fas fa-book"></i>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Descripción detallada -->
+<section class="curso-descripcion">
+    <div class="curso-descripcion-container">
+        <h2 class="curso-descripcion-titulo">Acerca del curso</h2>
+        
+        {% if curso.descripcion_larga %}
+            <div class="curso-descripcion-texto">
+                {{ curso.descripcion_larga|linebreaks }}
+            </div>
+        {% else %}
+            <p class="curso-descripcion-texto">
+                {{ curso.descripcion_corta }}
+            </p>
+        {% endif %}
+        
+        <!-- Qué incluye el curso -->
+        <div class="curso-incluye">
+            <h3 class="curso-incluye-titulo">¿Qué incluye este curso?</h3>
+            
+            {% if curso.lista_incluye %}
+                <ul class="curso-incluye-grid">
+                    {% for item in curso.lista_incluye %}
+                    <li class="curso-incluye-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>{{ item }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <ul class="curso-incluye-grid">
+                    <li class="curso-incluye-item">
+                        <i class="fas fa-check-circle"></i>
+                        Clases semipersonalizadas (máximo 8 estudiantes)
+                    </li>
+                    <li class="curso-incluye-item">
+                        <i class="fas fa-check-circle"></i>
+                        Material didáctico internacional
+                    </li>
+                    <li class="curso-incluye-item">
+                        <i class="fas fa-check-circle"></i>
+                        Plataforma online con ejercicios extras
+                    </li>
+                    <li class="curso-incluye-item">
+                        <i class="fas fa-check-circle"></i>
+                        Profesor auxiliar
+                    </li>
+                    <li class="curso-incluye-item">
+                        <i class="fas fa-check-circle"></i>
+                        Reportes de aprendizaje
+                    </li>
+                    <li class="curso-incluye-item">
+                        <i class="fas fa-check-circle"></i>
+                        Certificado por culminación de nivel
+                    </li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -132,7 +132,7 @@
                     <span style="font-size: 1.5rem; color: var(--primary-dark); font-weight: bold;">
                         ${{ curso.precio }}
                     </span>
-                    <a href="#" class="curso-link">
+                    <a href="{% url 'detalle_curso' curso.slug %}" class="curso-link">
                         Ver más →
                     </a>
                 </div>

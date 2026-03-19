@@ -2,12 +2,14 @@
 <nav class="navbar">
     <div class="nav-container">
         <div class="logo">
-            <img width="140px" src="{% static 'media/images/large.png' %}" alt="logo">
+            <a href="{% url 'home' %}">
+                <img width="140px" src="{% static 'media/images/large.png' %}" alt="logo">
+            </a>
         </div>
         <ul class="nav-menu">
             <li><a href="/" class="nav-link">Inicio</a></li>
-            <li><a href="#about" class="nav-link">Nostros</a></li>
-            <li><a href="#cursos" class="nav-link">Nuestros Cursos</a></li>
+            <li><a href="{% url 'home' %}#about" class="nav-link">Nostros</a></li>
+            <li><a href="{% url 'home' %}#cursos" class="nav-link">Nuestros Cursos</a></li>
             <li><a href="#" class="nav-link">Aprender</a></li>
         </ul>
         <div class="nav-actions">
