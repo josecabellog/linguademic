@@ -1,0 +1,129 @@
+{% extends 'base.html' %} // Esto siempre tiene que ir de primero. 
+{% load static %}
+{% block title %}Linguademic{% endblock %}
+
+
+{% block content %}
+    <!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Domina el Inglés con <span>Linguademic</span></h1>
+        <p>Más que un idioma, una puerta al mundo. Clases personalizadas con método innovador.</p>
+        <a href="#contacto" class="btn btn-primary">Comienza tu viaje</a>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="section-title">Nuestra Filosofía</h2>
+        <p class="section-subtitle">En Linguademic, creemos que la mejor manera de aprender inglés es riendo y conectando</p>
+        
+        <div class="about-grid">
+            <div class="about-content">
+                <p>Transformamos la ansiedad en confianza a través del humor, la práctica relevante y un entorno donde cada estudiante se siente escuchado. No solo enseñamos inglés; preparamos a nuestros estudiantes para situaciones de la vida real que pueden cambiar sus vidas.</p>
+                
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fas fa-brain feature-icon"></i>
+                        <h4>Confianza</h4>
+                        <p>Priorizamos crear un espacio donde es seguro intentar, tropezar y reír</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-comment-dots feature-icon"></i>
+                        <h4>Autenticidad</h4>
+                        <p>Valoramos la comunicación auténtica sobre la repetición perfecta</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-content">
+                <div style="margin-bottom: 2rem;">
+                    <h3>Misión</h3>
+                    <p>Diseñar experiencias de aprendizaje transformadoras y fomentar una comunidad de apoyo donde los estudiantes utilicen el inglés como una llave para abrir nuevas oportunidades.</p>
+                </div>
+                
+                <div>
+                    <h3>Visión</h3>
+                    <p>Derribar las barreras del idioma para una nueva generación de latinoamericanos, empoderándolos para conectar, crear y liderar.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Valores Section (actualizada) -->
+<section class="values">
+    <div class="container">
+        <h2 class="section-title">Nuestros Valores</h2>
+        <p class="section-subtitle">Los principios que guían nuestra comunidad</p>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Conexión y Comunidad</h3>
+                <p>Construimos un entorno seguro, vibrante y de apoyo donde estudiantes y profesores colaboran, comparten y crecen juntos.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Confianza antes que Perfección</h3>
+                <p>Creamos un espacio donde es seguro intentar, tropezar y reír. La precisión lingüística sigue a la confianza personal.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-microphone-alt"></i>
+                </div>
+                <h3>Expresión Auténtica</h3>
+                <p>Empoderamos a cada estudiante para encontrar, desarrollar y usar su voz única en inglés, valorando la comunicación auténtica.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <h3>Comprensión Global</h3>
+                <p>Preparamos a los estudiantes para construir puentes entre culturas con empatía y respeto, yendo más allá del vocabulario.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Cursos Section -->
+<section id="cursos" class="cursos">
+    <div class="container">
+        <h2 class="section-title">Nuestros Cursos</h2>
+        <p class="section-subtitle">Encuentra el programa perfecto para ti</p>
+        
+        <div class="cursos-grid">
+            <div class="curso-card">
+                <i class="fas fa-child curso-icon"></i>
+                <h3>Kids (6-12 años)</h3>
+                <p>Aprender jugando. Método lúdico que despierta la curiosidad y el amor por el inglés desde pequeños.</p>
+                <a href="#" class="curso-link">Ver más →</a>
+            </div>
+            
+            <div class="curso-card">
+                <i class="fas fa-user-graduate curso-icon"></i>
+                <h3>Teens (13-17 años)</h3>
+                <p>Enfocado en sus intereses: música, redes sociales, videojuegos. Preparación para exámenes internacionales.</p>
+                <a href="#" class="curso-link">Ver más →</a>
+            </div>
+            
+            <div class="curso-card">
+                <i class="fas fa-briefcase curso-icon"></i>
+                <h3>Adultos</h3>
+                <p>Inglés conversacional, profesional y de negocios. Horarios flexibles adaptados a tu ritmo de vida.</p>
+                <a href="#" class="curso-link">Ver más →</a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+{% endblock %}

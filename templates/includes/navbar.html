@@ -1,0 +1,25 @@
+{% load static %}
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img width="140px" src="{% static 'media/images/large.png' %}" alt="logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/" class="nav-link">Inicio</a></li>
+            <li><a href="#about" class="nav-link">Filosofía</a></li>
+            <li><a href="#cursos" class="nav-link">Cursos</a></li>
+            <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="https://wa.me/+584248325554" class="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span>Contáctanos</span>
+            </a>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </div>
+</nav>
