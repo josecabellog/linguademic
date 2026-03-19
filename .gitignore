@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environment
+venv/
+.venv/
+ENV/
+bin/
+lib/
+include/
+
+# Specific to Django
+db.sqlite3
+local_settings.py
+media/
+static/
+
+# IDE specific files (optional, depends on preference)
+.idea/  # For PyCharm
+.vscode/ # For VS Code
+*.swp
+
+# OS generated files
+.DS_Store # macOS
+.Spotlight-V100
+.Trashes
