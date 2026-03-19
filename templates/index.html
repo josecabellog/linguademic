@@ -105,30 +105,41 @@
         <p class="section-subtitle">Encuentra el programa perfecto para ti</p>
         
         <div class="cursos-grid">
+            {% for curso in cursos %}
             <div class="curso-card">
-                <i class="fas fa-child curso-icon"></i>
-                <h3>English Code</h3>
-                <p>Edades entre 6-10 años</p>
-                <p>Aprender jugando. Método lúdico que despierta la curiosidad y el amor por el inglés desde pequeños.</p>
-                <a href="#" class="curso-link">Ver más →</a>
+                <!-- Iconos según el nombre del curso -->
+                {% if curso.nombre == "English Code" %}
+                    <i class="fas fa-child curso-icon"></i>
+                {% elif curso.nombre == "Wider World" %}
+                    <i class="fas fa-user-graduate curso-icon"></i>
+                {% elif curso.nombre == "Common Ground" %}
+                    <i class="fas fa-briefcase curso-icon"></i>
+                {% elif curso.nombre == "Master American Accent" %}
+                    <i class="fas fa-microphone-alt curso-icon"></i>
+                {% elif curso.nombre == "Conversation Club" %}
+                    <i class="fas fa-comments curso-icon"></i>
+                {% else %}
+                    <i class="fas fa-book curso-icon"></i>
+                {% endif %}
+                
+                <h3>{{ curso.nombre }}</h3>
+                <p style="font-weight: 600; color: var(--primary-red); margin-bottom: 0.5rem;">
+                    {{ curso.edades }}
+                </p>
+                <p>{{ curso.descripcion_corta }}</p>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; width: 100%;">
+                    <span style="font-size: 1.5rem; color: var(--primary-dark); font-weight: bold;">
+                        ${{ curso.precio }}
+                    </span>
+                    <a href="#" class="curso-link">
+                        Ver más →
+                    </a>
+                </div>
             </div>
-            
-            <div class="curso-card">
-                <i class="fas fa-user-graduate curso-icon"></i>
-                <h3>Wider World</h3>
-                <p>Edades entre 12-17 años</p>
-                <p>Enfocado en sus intereses: música, redes sociales, videojuegos. Preparación para exámenes internacionales.</p>
-                <a href="#" class="curso-link">Ver más →</a>
-            </div>
-            
-            <div class="curso-card">
-                <i class="fas fa-briefcase curso-icon"></i>
-                <h3>Common Ground</h3>
-                <p>Mayores de 18 años</p>
-                <p>Inglés conversacional, profesional y de negocios. Horarios flexibles adaptados a tu ritmo de vida.</p>
-                <a href="#" class="curso-link">Ver más →</a>
-            </div>
-            
+            {% empty %}
+            <p style="grid-column: 1/-1; text-align: center;">Próximamente más cursos...</p>
+            {% endfor %}
         </div>
     </div>
 </section>
