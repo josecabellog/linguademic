@@ -7,7 +7,7 @@
     <!-- Hero Section -->
 <section class="hero">
     <div class="hero-content">
-        <h1>Domina el Inglés con <span>Linguademic</span></h1>
+        <h1>Domina el inglés con <span>Linguademic</span></h1>
         <p>
             Más que un idioma, una puerta al mundo. <br>
             Clases semi-personalizadas con el mejor método de aprendizaje.
@@ -39,6 +39,7 @@
                     </div>
                 </div>
             </div>
+            
 
             <div class="about-content">
                 <div style="margin-bottom: 2rem;">
@@ -132,7 +133,6 @@
                     <span style="font-size: 1.5rem; color: var(--primary-dark); font-weight: bold;">
                         ${{ curso.precio }}
                     </span>
-                    <a href="#" class="curso-link">
                     <a href="{% url 'detalle_curso' curso.slug %}" class="curso-link">
                         Ver más →
                     </a>
@@ -141,6 +141,51 @@
             {% empty %}
             <p style="grid-column: 1/-1; text-align: center;">Próximamente más cursos...</p>
             {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contacto" class="contacto">
+    <div class="container">
+        <h2 class="section-title">Contáctanos</h2>
+        <p class="section-subtitle">Estamos aquí para resolver tus dudas</p>
+        
+        <div class="contacto-container">
+            <div class="contacto-info">
+                <h3>¿Hablamos?</h3>
+                <p>Déjanos tus datos y te contactaremos a la brevedad para contarte todo sobre nuestros cursos y encontrar el ideal para ti.</p>
+                
+                <div class="contacto-details">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+58 424 832 5554</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>linguademic@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Lechería, Anzoátegui</span>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contacto-form">
+                <input type="text" placeholder="Nombre completo" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="tel" placeholder="Teléfono">
+                <select required>
+                    <option value="" disabled selected>Curso de interés</option>
+                    <option value="english-code">English Code</option>
+                    <option value="wider-world">Wider World</option>
+                    <option value="common-ground">Common Ground</option>
+                    <option value="master-accent">Master American Accent</option>
+                </select>
+                <textarea rows="4" placeholder="Mensaje"></textarea>
+                <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            </form>
         </div>
     </div>
 </section>
