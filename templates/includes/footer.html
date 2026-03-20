@@ -1,46 +1,63 @@
 {% load static %}
 <footer class="footer">
     <div class="footer-container">
+        <!-- Columna 1: Linguademic -->
         <div class="footer-section">
             <h4>Linguademic</h4>
-            <p>Transformamos vidas a través del inglés. Más que una academia, una comunidad de aprendizaje.</p>
-            
-            <!-- Redes Sociales -->
-            <div class="social-links">
-                <a href="https://instagram.com/linguademic" target="_blank" class="social-link" data-platform="instagram">
+            <p>Transformamos vidas a través del inglés. Más que una academia, una comunidad de aprendizaje donde la confianza y la conexión son la base del éxito.</p>
+        </div>
+
+        <!-- Columna 2: About Linguademic -->
+        <div class="footer-section">
+            <h4>About Linguademic</h4>
+            <ul>
+                <li><a href="{% url 'home' %}#">Inicio</a></li>
+                <li><a href="{% url 'home' %}#about">Nosotros</a></li>
+                <li><a href="{% url 'home' %}#cursos">Nuestros Cursos</a></li>
+                <li><a href="{% url 'home' %}#">Aprende Inglés</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Social Media (una bajo otra) -->
+        <div class="footer-section">
+            <h4>Social Media</h4>
+            <div class="social-links-footer">
+                <a href="https://instagram.com/linguademic" target="_blank" class="social-link-footer">
                     <i class="fab fa-instagram"></i>
+                    Instagram
                 </a>
-                <a href="https://facebook.com/linguademic" target="_blank" class="social-link" data-platform="facebook">
+                <a href="https://facebook.com/linguademic" target="_blank" class="social-link-footer">
                     <i class="fab fa-facebook-f"></i>
+                    Facebook
                 </a>
-                <a href="https://tiktok.com/@linguademic" target="_blank" class="social-link" data-platform="tiktok">
+                <a href="https://tiktok.com/@linguademic" target="_blank" class="social-link-footer">
                     <i class="fab fa-tiktok"></i>
+                    TikTok
                 </a>
-                <a href="https://youtube.com/@linguademic" target="_blank" class="social-link" data-platform="youtube">
+                <a href="https://youtube.com/@linguademic" target="_blank" class="social-link-footer">
                     <i class="fab fa-youtube"></i>
+                    YouTube
                 </a>
             </div>
         </div>
-        
-        <div class="footer-section">
-            <h4>Enlaces Rápidos</h4>
-            <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="#que-es">¿Qué es Linguademic?</a></li>
-                <li><a href="#mision-vision">Misión y Visión</a></li>
-                <li><a href="#valores">Nuestros Valores</a></li>
-                <li><a href="#cursos">Cursos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </div>
-        
 
-        <div class="footer-section"">
-            <h4>Contacto Directo</h4>
-            <p>+58 424 832 5554</p>
-            <p>linguademic@gmail.com</p>
-            <p>Lechería, Anzoàtegui</p>
-        </div>
+        <!-- Columna 4: Contact -->
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <ul class="contact-info">
+                <li>
+                    <i class="fas fa-phone"></i>
+                    +58 424 832 5554
+                </li>
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    linguademic@gmail.com
+                </li>
+                <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Lechería, Anzoátegui
+                </li>
+            </ul>
         </div>
     </div>
     

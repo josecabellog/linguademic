@@ -21,11 +21,11 @@
     <div class="container">
         <h2 class="section-title">Nuestra Filosofía</h2>
         <p class="section-subtitle">En Linguademic, creemos que la mejor manera de aprender inglés es riendo y conectando</p>
-        
+
         <div class="about-grid">
             <div class="about-content">
                 <p>Transformamos la ansiedad en confianza a través del humor, la práctica relevante y un entorno donde cada estudiante se siente escuchado. No solo enseñamos inglés; preparamos a nuestros estudiantes para situaciones de la vida real que pueden cambiar sus vidas.</p>
-                
+
                 <div class="about-features">
                     <div class="feature-item">
                         <i class="fas fa-brain feature-icon"></i>
@@ -39,13 +39,13 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="about-content">
                 <div style="margin-bottom: 2rem;">
                     <h3>Nuestra Misión</h3>
                     <p>Diseñar experiencias de aprendizaje transformadoras y fomentar una comunidad de apoyo donde los estudiantes utilicen el inglés como una llave para abrir nuevas oportunidades.</p>
                 </div>
-                
+
                 <div>
                     <h3>Nuestra Visión</h3>
                     <p>Derribar las barreras del idioma para una nueva generación de latinoamericanos, empoderándolos para conectar, crear y liderar.</p>
@@ -60,7 +60,7 @@
     <div class="container">
         <h2 class="section-title">Nuestros Valores</h2>
         <p class="section-subtitle">Los principios que guían nuestra comunidad</p>
-        
+
         <div class="values-grid">
             <div class="value-card">
                 <div class="value-icon">
@@ -69,7 +69,7 @@
                 <h3>Conexión y Comunidad</h3>
                 <p>Construimos un entorno seguro, vibrante y de apoyo donde estudiantes y profesores colaboran, comparten y crecen juntos.</p>
             </div>
-            
+
             <div class="value-card">
                 <div class="value-icon">
                     <i class="fas fa-shield-alt"></i>
@@ -77,7 +77,7 @@
                 <h3>Confianza antes que perfección</h3>
                 <p>Creamos un espacio donde es seguro intentar, tropezar y reír. La precisión lingüística sigue a la confianza personal.</p>
             </div>
-            
+
             <div class="value-card">
                 <div class="value-icon">
                     <i class="fas fa-microphone-alt"></i>
@@ -85,7 +85,7 @@
                 <h3>Expresión auténtica</h3>
                 <p>Empoderamos a cada estudiante para encontrar, desarrollar y usar su voz única en inglés, valorando la comunicación auténtica.</p>
             </div>
-            
+
             <div class="value-card">
                 <div class="value-icon">
                     <i class="fas fa-globe-americas"></i>
@@ -103,7 +103,7 @@
     <div class="container">
         <h2 class="section-title">Nuestros Cursos</h2>
         <p class="section-subtitle">Encuentra el programa perfecto para ti</p>
-        
+
         <div class="cursos-grid">
             {% for curso in cursos %}
             <div class="curso-card">
@@ -121,17 +121,18 @@
                 {% else %}
                     <i class="fas fa-book curso-icon"></i>
                 {% endif %}
-                
+
                 <h3>{{ curso.nombre }}</h3>
                 <p style="font-weight: 600; color: var(--primary-red); margin-bottom: 0.5rem;">
                     {{ curso.edades }}
                 </p>
                 <p>{{ curso.descripcion_corta }}</p>
-                
+
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; width: 100%;">
                     <span style="font-size: 1.5rem; color: var(--primary-dark); font-weight: bold;">
                         ${{ curso.precio }}
                     </span>
+                    <a href="#" class="curso-link">
                     <a href="{% url 'detalle_curso' curso.slug %}" class="curso-link">
                         Ver más →
                     </a>
