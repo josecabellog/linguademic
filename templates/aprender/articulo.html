@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/aprender.css' %}">
+{% endblock %}
+
+{% block title %}{{ recurso.titulo }} - Linguademic{% endblock %}
+
+{% block content %}
+<article class="articulo-container">
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs">
+            <a href="{% url 'home' %}">Inicio</a> >
+            <a href="{% url 'aprender_index' %}">Aprender</a> >
+            <a href="{% url 'aprender_categoria' recurso.categoria %}">{{ recurso.get_categoria_display }}</a> >
+            <span>{{ recurso.titulo }}</span>
+        </div>
+        
+        <!-- Header del artículo -->
+        <header class="articulo-header">
+            <span class="articulo-categoria">{{ recurso.get_categoria_display }}</span>
+            <h1>{{ recurso.titulo }}</h1>
+            <div class="articulo-meta">
+                <i class="far fa-calendar-alt"></i>
+                {{ recurso.fecha_publicacion|date:"d/m/Y" }}
+            </div>
+        </header>
+        
+        <!-- Imagen destacada -->
+        {% if recurso.imagen %}
+        <div class="articulo-imagen">
+            <img src="{{ recurso.imagen.url }}" alt="{{ recurso.titulo }}">
+        </div>
+        {% endif %}
+        
+        <!-- Contenido -->
+        <div class="articulo-contenido">
+            {{ recurso.contenido|safe }}
+        </div>
+        
+        <!-- Artículos relacionados -->
+        {% if relacionados %}
+        <div class="articulos-relacionados">
+            <h3>Artículos relacionados</h3>
+            <div class="relacionados-grid">
+                {% for relacionado in relacionados %}
+                <a href="{% url 'aprender_articulo' relacionado.slug %}" class="relacionado-card">
+                    <h4>{{ relacionado.titulo }}</h4>
+                    <p>{{ relacionado.descripcion_corta|truncatechars:80 }}</p>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</article>
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/aprender.css' %}">
+{% endblock %}
+
+{% block title %}{{ categoria }} - Aprende Inglés | Linguademic{% endblock %}
+
+{% block content %}
+<!-- Hero de Categoría -->
+<section class="categoria-hero">
+    <div class="container">
+        <a href="{% url 'aprender_index' %}" class="volver-link">
+            ← Volver a todos los recursos
+        </a>
+        <h1>{{ categoria }}</h1>
+        <p>Descubre todos nuestros recursos para aprender {{ categoria|lower }}</p>
+    </div>
+</section>
+
+<!-- Recursos por categoría -->
+<section class="recursos-categoria">
+    <div class="container">
+        <div class="recursos-grid">
+            {% for recurso in recursos %}
+            <a href="{% url 'aprender_articulo' recurso.slug %}" class="recurso-card-link">
+                <div class="recurso-card" data-categoria="{{ recurso.categoria }}">
+                    {% if recurso.imagen %}
+                    <img src="{{ recurso.imagen.url }}" alt="{{ recurso.titulo }}">
+                    {% else %}
+                    <div class="recurso-icon">
+                        <i class="fas 
+                            {% if recurso.categoria == 'vocabulario' %}fa-book
+                            {% elif recurso.categoria == 'gramatica' %}fa-spell-check
+                            {% elif recurso.categoria == 'pronunciacion' %}fa-microphone-alt
+                            {% elif recurso.categoria == 'consejos' %}fa-lightbulb
+                            {% elif recurso.categoria == 'cultura' %}fa-globe
+                            {% else %}fa-file-alt{% endif %}"></i>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="recurso-content">
+                        <span class="recurso-categoria">{{ recurso.get_categoria_display }}</span>
+                        <h3>{{ recurso.titulo }}</h3>
+                        <p>{{ recurso.descripcion_corta }}</p>
+                        <span class="btn-link">Leer más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </a>
+            {% empty %}
+            <div class="sin-recursos">
+                <i class="fas fa-book-open"></i>
+                <h3>No hay recursos aún</h3>
+                <p>Estamos preparando nuevo contenido para esta categoría. ¡Vuelve pronto!</p>
+                <a href="{% url 'aprender_index' %}" class="btn btn-primary">Ver todos los recursos</a>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Paginación -->
+        {% if recursos.has_other_pages %}
+        <div class="paginacion">
+            {% if recursos.has_previous %}
+            <a href="?page={{ recursos.previous_page_number }}" class="page-link">
+                <i class="fas fa-chevron-left"></i> Anterior
+            </a>
+            {% endif %}
+            
+            {% for num in recursos.paginator.page_range %}
+                {% if recursos.number == num %}
+                <span class="page-link active">{{ num }}</span>
+                {% elif num > recursos.number|add:'-3' and num < recursos.number|add:'3' %}
+                <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+            
+            {% if recursos.has_next %}
+            <a href="?page={{ recursos.next_page_number }}" class="page-link">
+                Siguiente <i class="fas fa-chevron-right"></i>
+            </a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+    <div class="container">
+        <h2>¿Quieres más contenido como este?</h2>
+        <p>Suscríbete a nuestro newsletter y recibe recursos gratuitos cada semana</p>
+        
+        <form id="newsletter-form" class="newsletter-form">
+            <input type="email" id="email" placeholder="Tu correo electrónico" required>
+            <button type="submit" class="btn btn-primary">Suscribirme</button>
+        </form>
+        <div id="newsletter-mensaje" class="newsletter-mensaje"></div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Newsletter
+    const newsletterForm = document.getElementById('newsletter-form');
+    
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('newsletter-mensaje');
+            
+            if (!email.includes('@') || !email.includes('.')) {
+                mensaje.textContent = 'Por favor, ingresa un correo válido';
+                mensaje.className = 'newsletter-mensaje error';
+                mensaje.style.display = 'block';
+                setTimeout(() => mensaje.style.display = 'none', 3000);
+                return;
+            }
+            
+            mensaje.textContent = '¡Gracias por suscribirte! Revisa tu correo';
+            mensaje.className = 'newsletter-mensaje exito';
+            mensaje.style.display = 'block';
+            newsletterForm.reset();
+            setTimeout(() => mensaje.style.display = 'none', 3000);
+        });
+    }
+});
+</script>
+{% endblock %}

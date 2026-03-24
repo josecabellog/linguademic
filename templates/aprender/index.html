@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/aprender.css' %}">
+{% endblock %}
+
+{% block title %}Aprende Inglés - Linguademic{% endblock %}
+
+{% block content %}
+<!-- Hero de Aprender -->
+<section class="aprender-hero">
+    <div class="container">
+        <h1>Aprende Inglés Gratis</h1>
+        <p>Recursos, consejos y ejercicios para mejorar tu inglés cada día</p>
+        
+        <!-- Buscador con JavaScript -->
+        <div class="buscador-container">
+            <input type="text" id="buscador" placeholder="Buscar recursos...">
+            <button id="btn-buscar" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Categorías -->
+<section class="categorias">
+    <div class="container">
+        <h2>Categorías</h2>
+        <div class="categorias-grid">
+            {% for key, value in categorias %}
+            <a href="{% url 'aprender_categoria' key %}" class="categoria-card">
+                <i class="fas 
+                    {% if key == 'vocabulario' %}fa-book
+                    {% elif key == 'gramatica' %}fa-spell-check
+                    {% elif key == 'pronunciacion' %}fa-microphone-alt
+                    {% elif key == 'consejos' %}fa-lightbulb
+                    {% elif key == 'cultura' %}fa-globe
+                    {% else %}fa-file-alt{% endif %}"></i>
+                <h3>{{ value }}</h3>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Recursos Recientes -->
+<section class="recursos-recientes">
+    <div class="container">
+        <h2>Recursos Recientes</h2>
+        <div class="recursos-grid" id="recursos-grid">
+            {% for recurso in recursos_recientes %}
+            <div class="recurso-card" data-categoria="{{ recurso.categoria }}">
+                {% if recurso.imagen %}
+                <img src="{{ recurso.imagen.url }}" alt="{{ recurso.titulo }}">
+                {% else %}
+                <div class="recurso-icon">
+                    <i class="fas 
+                        {% if recurso.categoria == 'vocabulario' %}fa-book
+                        {% elif recurso.categoria == 'gramatica' %}fa-spell-check
+                        {% elif recurso.categoria == 'pronunciacion' %}fa-microphone-alt
+                        {% elif recurso.categoria == 'consejos' %}fa-lightbulb
+                        {% elif recurso.categoria == 'cultura' %}fa-globe
+                        {% else %}fa-file-alt{% endif %}"></i>
+                </div>
+                {% endif %}
+                
+                <div class="recurso-content">
+                    <span class="recurso-categoria">{{ recurso.get_categoria_display }}</span>
+                    <h3>{{ recurso.titulo }}</h3>
+                    <p>{{ recurso.descripcion_corta }}</p>
+                    <a href="{% url 'aprender_articulo' recurso.slug %}" class="btn btn-secondary">
+                        Leer más <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <p>Próximamente más recursos...</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter con JavaScript -->
+<section class="newsletter">
+    <div class="container">
+        <h2>Recibe consejos semanales</h2>
+        <p>Suscríbete y recibe recursos gratuitos directamente en tu correo</p>
+        
+        <form id="newsletter-form" class="newsletter-form">
+            <input type="email" id="email" placeholder="Tu correo electrónico" required>
+            <button type="submit" class="btn btn-primary">Suscribirme</button>
+        </form>
+        <div id="newsletter-mensaje" class="newsletter-mensaje"></div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/aprender.js' %}"></script>
+{% endblock %}
